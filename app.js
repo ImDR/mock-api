@@ -32,6 +32,11 @@ app.get("/api/products/:id", (req, res) => {
     res.json(product);
 });
 
+app.get("/api/current", (req, res) => {
+    const d = new Date();
+    res.json({now: d.getTime()});
+});
+
 const server = app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
 server.keepAliveTimeout = 120 * 1000;
